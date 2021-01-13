@@ -15,6 +15,12 @@ const connect = function() {
     console.log('Connection is successfully established');
     conn.write('Name: DT');
   });
+  
+  // conn.on('connect', () => {
+  //   conn.write("Move: up");
+  //   setTimeout(conn.write("Move: right"), 1000);
+  //   setTimeout(conn.write("Move: down"), 2000);
+  // });
 
   return conn;
 };
