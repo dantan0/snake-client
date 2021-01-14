@@ -22,17 +22,32 @@ const setupInput = function(conn) {
 const handleUserInput = function(data) {
   if (data === '\u0003') {
     process.exit();
-  };
+  }
 
-  if (data === 'w') {
+  // create movements and special messages
+  switch (data) {
+  case 'w':
     connection.write('Move: up');
-  } else if (data === 'a') {
+    break;
+  case 'a':
     connection.write('Move: left');
-  } else if (data === 's') {
+    break;
+  case 's':
     connection.write('Move: down');
-  } else if (data === 'd') {
+    break;
+  case 'd':
     connection.write('Move: right');
-  };
+    break;
+  case '1':
+    connection.write('Say: Wreck it!');
+    break;
+  case '2':
+    connection.write('Say: Hit it!');
+    break;
+  case '3':
+    connection.write('Say: Tank it!');
+    break;
+  }
 };
 
 module.exports = { setupInput };

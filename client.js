@@ -14,7 +14,6 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('Connection is successfully established');
     conn.write('Name: DT');
-    conn.write('Say: Wreck it!');
   });
 
   return conn;
