@@ -4,6 +4,7 @@
  */
 
 let connection;
+const { KEYS } = require('./constants');
 
 const setupInput = function(conn) {
   connection = conn;
@@ -24,29 +25,11 @@ const handleUserInput = function(data) {
     process.exit();
   }
 
-  // create movements and special messages
-  switch (data) {
-  case 'w':
-    connection.write('Move: up');
-    break;
-  case 'a':
-    connection.write('Move: left');
-    break;
-  case 's':
-    connection.write('Move: down');
-    break;
-  case 'd':
-    connection.write('Move: right');
-    break;
-  case '1':
-    connection.write('Say: Wreck it!');
-    break;
-  case '2':
-    connection.write('Say: Hit it!');
-    break;
-  case '3':
-    connection.write('Say: Tank it!');
-    break;
+  // look up the key
+  for (key in KEYS) {
+    if (data === key) {
+      connection.write(KEYS[key]);
+    }
   }
 };
 
